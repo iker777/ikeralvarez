@@ -1,0 +1,31 @@
+---
+import Layout from "../layouts/Layout.astro";
+const res = await fetch("https://api.spacexdata.com/v5/launches/query", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+        query: {},
+        options: {
+            sort: {
+                date_unix: "desc",
+            },
+            limit: 5,
+        },
+    }),
+});
+const { docs: launches } = await res.json();
+---
+
+<Layout>
+    <h1>Fetching de datos:</h1>
+    <!-- @ts-ignore -->
+    {launches.map(launch => (
+            <article>
+                <h2>Lanzamiento número: #{launch.id}</h2>
+                <img src={launch.links.patch.small} alt="">
+            </article> 
+        )   
+    }
+</Layout>
