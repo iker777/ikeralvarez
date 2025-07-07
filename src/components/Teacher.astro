@@ -1,0 +1,69 @@
+---
+import astroLogo from "../assets/astro.svg";
+import background from "../assets/background.svg";
+---
+
+<article class="dev__cont">
+  <div class="dev__filter"></div>
+  <h2 class="dev__title">Formador</h2>
+  <span class="dev__span">Lorem ipsum dolor sit amet.</span>
+</article>
+<style>
+  .dev__cont {
+    position: relative; 
+    background-image: url('/img/blackboard.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 16px;
+    width: 100%;
+    height: 100%;
+    padding: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: transform 0.3s ease-in-out;
+  }
+  .dev__cont:hover {
+    transform: scale(1.05);
+  }
+  .dev__filter {
+    z-index: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0, 0.58); /* Semi-transparent black */
+    border-radius: 16px;
+  }
+  .dev__title {
+    z-index: 1;
+    text-align: center;
+    width: 100%;
+    font-size: 60px;
+  }
+  .dev__span {
+    z-index: 1;
+    text-align: center;
+    width: 100%;
+    font-size: 24px;
+  }
+  @media (max-width: 1280px) {
+    .dev__title {
+      font-size: 32px;
+    }
+    .dev__span {
+      font-size: 16px;
+    }
+  }
+  /* @media (max-width: 768px) {
+    .dev__title {
+      font-size: 32px;
+    }
+    .dev__span {
+      font-size: 16px;
+    }
+  } */
+</style>

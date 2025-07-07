@@ -1,8 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
-
-console.log("HoolI!");
+import Dev from "../components/Dev.astro";
+import Teacher from "../components/Teacher.astro";
 ---
 
 <Layout title="Iker Álvarez | Desarrollador y profesor">
@@ -10,7 +10,7 @@ console.log("HoolI!");
 		<Hero />
 	</section>
 	<section class="bento dev">
-		<h2>Dev</h2>
+		<Dev/>
 	</section>
 	<section class="bento exitos">
 		<h2>Éxitos</h2>
@@ -22,9 +22,10 @@ console.log("HoolI!");
 		<h2>Contacto</h2>
 	</section>
 	<section class="bento profe">
-		<h2>Profesor</h2>
+		<Teacher />
 	</section>
 </Layout>
+
 <style>
 	.bento {
 		background-color: var(--color-surface);
@@ -36,6 +37,13 @@ console.log("HoolI!");
 		grid-column: 1 / 9;
 		grid-row: 1 / 5;
 		background-color: var(--color-primary);
+		animation: tiltIntro 1s ease-out;
+		overflow: hidden;
+	}
+	@keyframes tiltIntro {
+		0%   { transform: rotateX(0deg) rotateY(0deg) scale(1); }
+		50%  { transform: rotateX(10deg) rotateY(-10deg) scale(1.05); }
+		100% { transform: rotateX(0deg) rotateY(0deg) scale(1); }
 	}
 	.dev {
 		grid-column: 9 / 13;
@@ -53,30 +61,30 @@ console.log("HoolI!");
 		grid-column: 5 / 9;
 		grid-row: 9 / 13;
 	}
-
+	
 	.profe {
 		grid-column: 9 / 13;
 		grid-row: 7 / 13;
 	}
 	@media (max-width: 768px) {
-		.dev {
-			grid-column: 1 / 7;
+		.hero {
+			grid-column: 1 / 13;
 			grid-row: 1 / 4;
 			order: 1;
 		}
+		.dev {
+			grid-column: 1 / 7;
+			grid-row: 4 / 8;
+			order: 2;
+		}
 		.profe {
 			grid-column: 7 / 13;
-			grid-row: 1 / 4;
-			order: 2;
+			grid-row: 4 / 8;
+			order: 34;
 		}
 		.contacto {
 			grid-column: 1 / 13;
-			grid-row: 4 / 6;
-			order: 3;
-		}
-		.hero {
-			grid-column: 1 / 13;
-			grid-row: 6 / 10;
+			grid-row: 8 / 10;
 			order: 4;
 		}
 		.sobre-mi {
@@ -91,3 +99,22 @@ console.log("HoolI!");
 		}
 	}
 </style>
+<script src="/js/vanilla-tilt.min.js" is:inline></script>
+<script is:inline>
+	document.addEventListener("DOMContentLoaded", () => {
+		const tiltElement = document.querySelector(".bento.hero");
+		if (tiltElement) {
+			VanillaTilt.init(tiltElement, {
+				max: 20,
+				// startX: 5,
+				// startY: 5,
+				speed: 50,
+				scale: 1.05,
+				transition: true,
+				glare: true,
+				gyroscope: true,   // Boolean to enable/disable device orientation detection,
+				'max-glare': 0.8,
+			});
+		}
+	});
+</script>
