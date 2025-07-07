@@ -12,12 +12,18 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
-		<slot />
+		<main class="main">
+			<slot />
+		</main>
 		<!-- This is where the content will be injected -->
 	</body>
 </html>
 
 <style is:global>
+	@font-face {
+		font-family: "Norse";
+		src: url("../../public/fonts/Norse.otf");
+	}
 	:root {
 		/* 🎨 Colores principales */
 		--color-background: #0f172a; /* Fondo principal (dark navy) */
@@ -90,5 +96,16 @@ const { title } = Astro.props;
 		scroll-behavior: smooth;
 		background-color: var(--color-background);
 		color: white;
+		font-family: "Norse";
+	}
+	.main {
+		padding: 16px;
+		background-color: var(--color-background);
+		color: var(--color-text-primary);
+		display: grid;
+		grid-template-rows: repeat(12, 1fr);
+		grid-template-columns: repeat(12, 1fr);
+		min-height: 100vh;
+		gap: 16px;
 	}
 </style>
