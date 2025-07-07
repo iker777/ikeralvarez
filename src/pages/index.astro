@@ -32,13 +32,17 @@ import Teacher from "../components/Teacher.astro";
 		border: 2px solid var(--color-primary);
 		border-radius: 16px;
 		padding: 0;
+		cursor: pointer;
 	}
 	.hero {
+		position: relative;
+		z-index: 2;
 		grid-column: 1 / 9;
 		grid-row: 1 / 5;
 		background-color: var(--color-primary);
 		animation: tiltIntro 1s ease-out;
 		overflow: hidden;
+		cursor: default;
 	}
 	@keyframes tiltIntro {
 		0%   { transform: rotateX(0deg) rotateY(0deg) scale(1); }
