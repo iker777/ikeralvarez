@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
 import Dev from "../components/Dev.astro";
 import Teacher from "../components/Teacher.astro";
+import Contact from "../components/Contact.astro";
 ---
 
 <Layout title="Iker Álvarez | Desarrollador y profesor">
@@ -10,16 +11,16 @@ import Teacher from "../components/Teacher.astro";
 		<Hero />
 	</section>
 	<section class="bento dev">
-		<Dev/>
+		<Dev />
 	</section>
 	<section class="bento exitos">
-		<h2>Éxitos</h2>
+		<h2>Casos de éxito</h2>
 	</section>
 	<section class="bento sobre-mi">
 		<h2>Sobre mí</h2>
 	</section>
 	<section class="bento contacto">
-		<h2>Contacto</h2>
+		<Contact />
 	</section>
 	<section class="bento profe">
 		<Teacher />
@@ -45,9 +46,15 @@ import Teacher from "../components/Teacher.astro";
 		cursor: default;
 	}
 	@keyframes tiltIntro {
-		0%   { transform: rotateX(0deg) rotateY(0deg) scale(1); }
-		50%  { transform: rotateX(10deg) rotateY(-10deg) scale(1.05); }
-		100% { transform: rotateX(0deg) rotateY(0deg) scale(1); }
+		0% {
+			transform: rotateX(0deg) rotateY(0deg) scale(1);
+		}
+		50% {
+			transform: rotateX(10deg) rotateY(-10deg) scale(1.05);
+		}
+		100% {
+			transform: rotateX(0deg) rotateY(0deg) scale(1);
+		}
 	}
 	.dev {
 		grid-column: 9 / 13;
@@ -60,12 +67,16 @@ import Teacher from "../components/Teacher.astro";
 	.contacto {
 		grid-column: 5 / 9;
 		grid-row: 5 / 9;
+		background-color: var(--color-accent-purple-hover);
+	}
+	.contacto:hover {
+		background-color: var(--color-accent-purple);
 	}
 	.sobre-mi {
 		grid-column: 5 / 9;
 		grid-row: 9 / 13;
 	}
-	
+
 	.profe {
 		grid-column: 9 / 13;
 		grid-row: 7 / 13;
@@ -109,15 +120,15 @@ import Teacher from "../components/Teacher.astro";
 		const tiltElement = document.querySelector(".bento.hero");
 		if (tiltElement) {
 			VanillaTilt.init(tiltElement, {
-				max: 20,
+				max: 10,
 				// startX: 5,
 				// startY: 5,
-				speed: 50,
+				speed: 1000,
 				scale: 1.05,
 				transition: true,
 				glare: true,
-				gyroscope: true,   // Boolean to enable/disable device orientation detection,
-				'max-glare': 0.8,
+				gyroscope: true, // Boolean to enable/disable device orientation detection,
+				"max-glare": 0.8,
 			});
 		}
 	});

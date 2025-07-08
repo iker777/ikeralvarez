@@ -12,7 +12,7 @@ const { title } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
-		<ViewTransitions/>
+		<ViewTransitions />
 	</head>
 	<body>
 		<main class="main">
@@ -25,7 +25,7 @@ const { title } = Astro.props;
 <style is:global>
 	@font-face {
 		font-family: "Norse";
-		src: url("../../public/fonts/Norse.otf");
+		src: url("/fonts/Norse.otf");
 	}
 	:root {
 		/* 🎨 Colores principales */
@@ -41,7 +41,12 @@ const { title } = Astro.props;
 
 		/* 🎯 Colores de marca */
 		--color-primary: #3b82f6; /* Azul principal (botones, enlaces) */
-		--color-primary-shadow: rgba(59, 130, 246, 0.6); /* Azul principal (botones, enlaces) */
+		--color-primary-shadow: rgba(
+			59,
+			130,
+			246,
+			0.6
+		); /* Azul principal (botones, enlaces) */
 		--color-primary-hover: #2563eb; /* Hover azul más oscuro */
 		--color-primary-active: #1d4ed8; /* Estado activo / pulsado */
 
