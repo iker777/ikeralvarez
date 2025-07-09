@@ -1,6 +1,6 @@
 
 <article class="hero__cont">
-    <h2 class="hero__title">Iker Álvarez</h2>
+    <h2 class="hero__title"><img class="hero__img" src="/svg/logo-iker.svg" alt=""> <span>Iker Álvarez</span></h2>
     <span class="hero__span">Lorem ipsum dolor sit amet.</span>
 </article>
 <style>
@@ -18,10 +18,27 @@
         text-align: center;
         width: 100%;
         font-size: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .hero__img{
+        width: 80px;
+        height: 80px;
+        margin-right: 16px;
+        vertical-align: middle;
     }
     .hero__span {
         text-align: center;
         width: 100%;
         font-size: 24px;
+    }
+    @media (max-width: 768px) {
+        .hero__title {
+            font-size: 40px;
+        }
+        .hero__span {
+            font-size: 16px;
+        }
     }
 </style>

@@ -27,6 +27,10 @@ const { title } = Astro.props;
 		font-family: "Norse";
 		src: url("/fonts/Norse.otf");
 	}
+	@font-face {
+		font-family: "Poppins";
+		src: url("/fonts/Poppins-Light.ttf") format("truetype");
+	}
 	:root {
 		/* 🎨 Colores principales */
 		--color-background: #0f172a; /* Fondo principal (dark navy) */
@@ -53,8 +57,8 @@ const { title } = Astro.props;
 		/* 🌿 Colores de acento */
 		--color-accent-green: #10b981; /* Verde menta (éxito, CTA secundaria) */
 		--color-accent-green-hover: #059669;
-		--color-accent-purple: #a78bfa; /* Púrpura suave (para detalles creativos) */
-		--color-accent-purple-hover: #8b5cf6;
+		--color-accent-purple:  #8b5cf6; /* Púrpura suave (para detalles creativos) */
+		--color-accent-purple-hover: #a78bfa;
 
 		/* 🪄 Animaciones y transiciones */
 		--transition-fast: 0.15s ease-in-out;
@@ -105,17 +109,31 @@ const { title } = Astro.props;
 		scroll-behavior: smooth;
 		background-color: var(--color-background);
 		color: white;
+		font-family: "Poppins";
+	}
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
 		font-family: "Norse";
 	}
 	.main {
-		padding: 16px;
-		background-color: var(--color-background);
+		/* background-color: var(--color-surface);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    background: radial-gradient(
+    circle at 10% 40%,
+    rgb(139, 92, 246, 0.4) 0%, /* Color del foco izquierdo (morado con transparencia) */
+    transparent 50% /* Se desvanece a transparente */
+    ),
+    radial-gradient(
+    circle at 80% 90%,
+    rgb(60, 131, 246, 0.3) 0%, /* Color del foco inferior derecho (morado más oscuro con transparencia) */
+    transparent 50% /* Se desvanece a transparente */
+    ),
+    var(--color-background); /* Color de fondo base (morado muy oscuro) */
 		color: var(--color-text-primary);
-		display: grid;
-		grid-template-rows: repeat(12, 1fr);
-		grid-template-columns: repeat(12, 1fr);
-		min-height: 100vh;
-		gap: 16px;
 		overflow-x: hidden;
 	}
 </style>

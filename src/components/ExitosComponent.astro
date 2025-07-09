@@ -1,0 +1,40 @@
+<a href="/exitos" class="exitos__a">
+  <div class="exitos__card exitos__card--11"></div>
+  <div class="exitos__card exitos__card--21"></div>
+  <div class="exitos__card exitos__card--12"></div>
+  <div class="exitos__card exitos__card--22"></div>
+</a>
+<style>
+  .exitos__a{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.3s ease-in-out;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 1px;
+  }
+  .exitos__a:hover {
+    transform: scale(1.05);
+  }
+  .exitos__card {
+    background-color: var(--color-surface);
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+  .exitos__card--11 {
+    border-radius: 14px 0 0 0;
+  }
+  .exitos__card--21 {
+    border-radius: 0 14px 0 0;
+  }
+  .exitos__card--12 {
+    border-radius: 0 0 0 14px;
+  }
+  .exitos__card--22 {
+    border-radius: 0 0 14px 0;  
+  }
+</style>

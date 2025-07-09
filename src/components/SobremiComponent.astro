@@ -1,0 +1,57 @@
+<a href="/sobremi" class="sobremi__a">
+    <img
+    class="sobremi__img"
+    src="/assets/entities/iker-personaje-sin-fondo.png"
+    />
+    <div class="sobremi__text">
+        <h2 class="sobremi__h2">Sobre mí</h2>
+        <span class="sobremi__span">¡Descúbreme jugando!</span>
+    </div>
+</a>
+<style>
+    .sobremi__a {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        text-decoration: none;
+        z-index: 2;
+        transition: transform 0.3s ease-in-out;
+    }
+    .sobremi__a:hover {
+        transform: scale(1.05) translateY(-4px);
+    }
+    .sobremi__img {
+        position: absolute;
+        bottom: 0;
+        height: calc(100vh * (4.5 / 12));
+        width: auto;
+        left: 0;
+    }
+    .sobremi__text {
+        position: relative;
+        z-index: 3;
+        margin-right: 32px;
+        color: white;
+    }
+    .sobremi__h2 {
+        font-size: 40px;
+    }
+    @media (max-width: 1280px) {
+        .sobremi__img{
+            height: calc(100vh * (4 / 12));
+            left: -5vw;
+        }
+        /* .sobremi__span {
+            display: none;
+        } */
+    }
+    @media (max-width: 768px) {
+        .sobremi__img {
+            height: calc(100vh * (3 / 12));
+            left: 0;
+        }
+    }
+</style>

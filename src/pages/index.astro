@@ -1,33 +1,49 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Hero from "../components/Hero.astro";
-import Dev from "../components/Dev.astro";
-import Teacher from "../components/Teacher.astro";
-import Contact from "../components/Contact.astro";
+import HeroComponent from "../components/HeroComponent.astro";
+import DevComponent from "../components/DevComponent.astro";
+import TeacherComponent from "../components/TeacherComponent.astro";
+import SobremiComponent from "../components/SobremiComponent.astro"
+import ContactComponent from "../components/ContactComponent.astro"
+import ExitosComponent from "../components/ExitosComponent.astro";
 ---
 
 <Layout title="Iker Álvarez | Desarrollador y profesor">
-	<section class="bento hero">
-		<Hero />
-	</section>
-	<section class="bento dev">
-		<Dev />
-	</section>
-	<section class="bento exitos">
-		<h2>Casos de éxito</h2>
-	</section>
-	<section class="bento sobre-mi">
-		<h2>Sobre mí</h2>
-	</section>
-	<section class="bento contacto">
-		<Contact />
-	</section>
-	<section class="bento profe">
-		<Teacher />
-	</section>
+	<div class="grid">
+		<section class="bento hero">
+			<HeroComponent />
+		</section>
+		<section class="bento dev">
+			<DevComponent />
+		</section>
+		<section class="bento exitos">
+			<ExitosComponent>
+		</section>
+		<section class="bento sobre-mi">
+			<SobremiComponent />
+		</section>
+		<section class="bento contacto">
+			<ContactComponent/>
+		</section>
+		<section class="bento profe">
+			<TeacherComponent />
+		</section>
+	</div>
 </Layout>
 
 <style>
+	.grid{
+		padding: 16px;
+		/* background-color: var(--color-background);
+		color: var(--color-text-primary); */
+		display: grid;
+		grid-template-rows: repeat(12, 1fr);
+		grid-template-columns: repeat(12, 1fr);
+		min-height: 100vh;
+		gap: 16px;
+		overflow-x: hidden;
+		/* height: 100%; */
+	}
 	.bento {
 		background-color: var(--color-surface);
 		border: 2px solid var(--color-primary);
@@ -63,20 +79,25 @@ import Contact from "../components/Contact.astro";
 	.exitos {
 		grid-column: 1 / 5;
 		grid-row: 5 / 13;
+		position: relative;
+		background-color: white;
 	}
 	.contacto {
 		grid-column: 5 / 9;
 		grid-row: 5 / 9;
-		background-color: var(--color-accent-purple-hover);
+		background-color: var(--color-accent-purple);
+		transition: transform 0.3s ease-in-out;
 	}
 	.contacto:hover {
-		background-color: var(--color-accent-purple);
+		background-color: var(--color-accent-purple-hover);
+		transform: scale(1.05);
 	}
 	.sobre-mi {
 		grid-column: 5 / 9;
 		grid-row: 9 / 13;
+		position: relative;
 	}
-
+	
 	.profe {
 		grid-column: 9 / 13;
 		grid-row: 7 / 13;
