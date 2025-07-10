@@ -1,7 +1,7 @@
 <a href="/sobremi" class="sobremi__a">
     <img
-    class="sobremi__img"
-    src="/assets/entities/iker-personaje-sin-fondo.png"
+        class="sobremi__img"
+        src="/assets/entities/iker-personaje-sin-fondo.png"
     />
     <div class="sobremi__text">
         <h2 class="sobremi__h2">Sobre mí</h2>
@@ -40,18 +40,28 @@
         font-size: 40px;
     }
     @media (max-width: 1280px) {
-        .sobremi__img{
+        .sobremi__img {
             height: calc(100vh * (4 / 12));
             left: -5vw;
         }
-        /* .sobremi__span {
-            display: none;
-        } */
+        .sobremi__text {
+            text-align: center;
+            margin-right: 16px;
+        }
+        .sobremi__h2 {
+            font-size: 32px;
+        }
     }
     @media (max-width: 768px) {
         .sobremi__img {
             height: calc(100vh * (3 / 12));
             left: 0;
+        }
+        .sobremi__h2 {
+            font-size: 24px;
+        }
+        .sobremi__text {
+            margin-right: 8px;
         }
     }
 </style>

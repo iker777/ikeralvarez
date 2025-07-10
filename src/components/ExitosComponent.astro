@@ -1,11 +1,64 @@
 <a href="/exitos" class="exitos__a">
-  <div class="exitos__card exitos__card--11"></div>
-  <div class="exitos__card exitos__card--21"></div>
-  <div class="exitos__card exitos__card--12"></div>
-  <div class="exitos__card exitos__card--22"></div>
+  <div class="exitos__filter">
+    <h2 class="exitos__h2">Casos de éxito</h2>
+  </div>
+  <div class="exitos__card exitos__card--11">
+    <img
+      src="/public/img/projects/irantzumovimiento.jpg"
+      alt="Web de irantzumovimiento.com"
+      class="exitos__img"
+    />
+  </div>
+  <div class="exitos__card exitos__card--21">
+    <img
+      src="/public/img/projects/ovum.jpg"
+      alt="Web de ovum.es"
+      class="exitos__img"
+    />
+  </div>
+  <div class="exitos__card exitos__card--12">
+    <img
+      src="/public/img/projects/franquihogar.jpg"
+      alt="Web de franquihogaronline.com"
+      class="exitos__img"
+    />
+  </div>
+  <div class="exitos__card exitos__card--22">
+    <img
+      src="/public/img/projects/code2pdf.jpg"
+      alt="Proyecto de code2PDF"
+      class="exitos__img exitos__img--code2pdf"
+    />
+  </div>
 </a>
 <style>
-  .exitos__a{
+  .exitos__filter {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: var(--color-shadow);
+    z-index: 2;
+    border-radius: 14px;
+    transition: background-color 0.7s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .exitos__h2 {
+    color: white;
+    font-size: 56px;
+    transition: color 0.7s ease;
+  }
+  .exitos__filter:hover {
+    background-color: transparent;
+    color: transparent;
+  }
+  .exitos__filter:hover .exitos__h2 {
+    color: transparent;
+  }
+  .exitos__a {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -13,10 +66,18 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
-    gap: 1px;
+    gap: 2px;
   }
   .exitos__a:hover {
     transform: scale(1.05);
+  }
+  .exitos__img {
+    height: 100%;
+  }
+  .exitos__img--code2pdf {
+    height: auto;
+    min-height: 100%;
+    width: 100%;
   }
   .exitos__card {
     background-color: var(--color-surface);
@@ -35,6 +96,16 @@
     border-radius: 0 0 0 14px;
   }
   .exitos__card--22 {
-    border-radius: 0 0 14px 0;  
+    border-radius: 0 0 14px 0;
+  }
+  @media (max-width: 1280px) {
+    .exitos__h2 {
+      font-size: 40px;
+    }
+  }
+  @media (max-width: 768px) {
+    .exitos__h2 {
+      font-size: 24px;
+    }
   }
 </style>
