@@ -1,16 +1,10 @@
 ---
-import MainComponent from "../components/MainComponent.astro";
+import NavMenu from "../components/NavMenu.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-  <nav class="nav">
-    <div class="nav__burger">🍔</div>
-    <div class="nav__content">
-      <!-- La idea es hacer un menú de navegación que se abra y que sea el bento grid -->
-      <!-- <MainComponent /> -->
-    </div>
-  </nav>
+  <NavMenu />
   <section class="callme">
     <article class="callme__textCont">
       <div class="callme__text">
@@ -52,11 +46,6 @@ import Layout from "../layouts/Layout.astro";
       </form>
     </article>
   </section>
-
-  <script>
-    const burger = document.querySelector(".nav__burger");
-    burger?.addEventListener("click", () => console.log("Hooola"));
-  </script>
   <style>
     .callme {
       display: flex;
@@ -226,17 +215,30 @@ import Layout from "../layouts/Layout.astro";
       top: 0;
       left: 0;
       width: 100%;
-      height: 10vh;
-      display: flex;
-      justify-content: end;
-      align-items: center;
-      padding: 32px;
+      height: 100vh;
+      overflow: hidden;
     }
     .nav__burger {
       cursor: pointer;
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin: 32px 32px 0 0;
+      z-index: 2;
     }
     .nav__content {
-      display: none;
+      position: absolute;
+      background-color: var(--color-shadow);
+      backdrop-filter: blur(5px);
+      width: 100%;
+      min-height: 100vh;
+      top: 0;
+      left: 100%;
+      z-index: 1;
+      transition: left 1.5s ease-in-out;
+    }
+    .menu__active {
+      left: 0;
     }
   </style>
 </Layout>

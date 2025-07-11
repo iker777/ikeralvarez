@@ -1,5 +1,5 @@
 ---
-    layout: './../../layouts/LayoutExitos.astro'
+    layout: './../../layouts/Layout.astro'
     title: 'Soy el título'
 ---
 
