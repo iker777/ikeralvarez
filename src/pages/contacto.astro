@@ -32,15 +32,23 @@ import Layout from "../layouts/Layout.astro";
       <form class="callme__form">
         <div class="callme__formGroup">
           <label for="name" class="callme__label">Nombre</label>
-          <input type="text" id="name" class="callme__input" required />
+          <input type="text" name="name" class="callme__input" required />
         </div>
         <div class="callme__formGroup">
           <label for="email" class="callme__label">Email</label>
-          <input type="email" id="email" class="callme__input" required />
+          <input type="email" name="email" class="callme__input" required />
+        </div>
+        <div class="callme__formGroup">
+          <label for="email" class="callme__label">¿Qué necesitas?</label>
+          <select class="callme__input" name="que_servicio">
+            <option value="callme__input">Desarrollo web</option>
+            <option value="option2">Profesor</option>
+            <option value="option3">Option 3</option>
+          </select>
         </div>
         <div class="callme__formGroup">
           <label for="message" class="callme__label">Mensaje</label>
-          <textarea id="message" class="callme__textarea" required></textarea>
+          <textarea name="message" class="callme__textarea" required></textarea>
         </div>
         <button type="submit" class="callme__button">Enviar mensaje</button>
       </form>
@@ -53,8 +61,6 @@ import Layout from "../layouts/Layout.astro";
       justify-content: center;
       width: 100%;
       min-height: 100vh;
-      /* background-color: var(--color-surface);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
     }
     .callme__textCont {
       width: 50%;
