@@ -41,14 +41,19 @@ import Layout from "../layouts/Layout.astro";
         <div class="callme__formGroup">
           <label for="email" class="callme__label">¿Qué necesitas?</label>
           <select class="callme__input" name="que_servicio">
-            <option value="callme__input">Desarrollo web</option>
-            <option value="option2">Profesor</option>
-            <option value="option3">Option 3</option>
+            <option class="callme__option" value="callme__input"
+              >Un desarrollador web</option
+            >
+            <option class="callme__option" value="option2">Un profesor</option>
           </select>
         </div>
         <div class="callme__formGroup">
           <label for="message" class="callme__label">Mensaje</label>
-          <textarea name="message" class="callme__textarea" required></textarea>
+          <textarea
+            name="message"
+            class="callme__textarea"
+            placeholder="Necesito una web para mi tienda, quiero empezar a vender mis productos online. "
+            required></textarea>
         </div>
         <button type="submit" class="callme__button">Enviar mensaje</button>
       </form>
@@ -142,6 +147,10 @@ import Layout from "../layouts/Layout.astro";
       height: 100px;
       resize: none;
     }
+    .callme__textarea::placeholder {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.9em;
+    }
     .callme__label {
       font-size: 1rem;
       margin-bottom: 8px;
@@ -161,6 +170,9 @@ import Layout from "../layouts/Layout.astro";
       outline: none;
       border-color: var(--color-primary);
       box-shadow: 0 0 4px 2px rgba(66, 165, 245, 0.5);
+    }
+    option {
+      color: var(--color-primary);
     }
     .callme__button {
       background: var(--color-accent-purple);

@@ -5,5 +5,137 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout>
     <NavMenu />
-    <h1>Profesor</h1>
+    <section class="prof">
+        <h1 class="prof__h1">Profesor</h1>
+        <p class="prof__p">
+            Soy profesor de programación y marketing digital. Doy cursos de
+            certificados de profesionalidad y doy cursos en empresas de manera
+            presencial.
+        </p>
+        <p class="prof__p">
+            Si quieres contratar un curso, puedes elegir entre estas opciones:
+        </p>
+        <div class="card-container">
+            <div class="card">
+                <h2 class="card__h2">Curso de HTML y CSS</h2>
+                <a href="#" class="card__btn">Ver más</a>
+            </div>
+            <div class="card">
+                <h2 class="card__h2">Curso de JavaScript</h2>
+                <a href="#" class="card__btn">Ver más</a>
+            </div>
+            <div class="card">
+                <h2 class="card__h2">Curso de PHP</h2>
+                <a href="#" class="card__btn">Ver más</a>
+            </div>
+            <div class="card">
+                <h2 class="card__h2">
+                    Cursos de creación de plantillas con Wordpress
+                </h2>
+                <a href="#" class="card__btn">Ver más</a>
+            </div>
+            <div class="card">
+                <h2 class="card__h2">Cursos de creación de tiendas online</h2>
+                <a href="#" class="card__btn">Ver más</a>
+            </div>
+            <div class="card">
+                <h2 class="card__h2">Cursos de creación de SEO</h2>
+                <a href="#" class="card__btn">Ver más</a>
+            </div>
+            <div class="card">
+                <h2 class="card__h2">Cursos de integración de APIs</h2>
+                <a href="#" class="card__btn">Ver más</a>
+            </div>
+            <div class="card">
+                <h2 class="card__h2">Curso de Google Analytics</h2>
+                <a href="#" class="card__btn">Ver más</a>
+            </div>
+            <div class="card">
+                <h2 class="card__h2">Curso de Mailchimp</h2>
+                <a href="#" class="card__btn">Ver más</a>
+            </div>
+        </div>
+        <p class="prof__p">
+            ¿No encuentras el curso que necesitas? Pídemelo y si está dentro de
+            mis conocimientos, lo creo. <span class="prof__contacto"
+                >contacto</span
+            >
+        </p>
+    </section>
 </Layout>
+<script is:inline>
+    const link = document.querySelector(".prof__contacto");
+    link?.addEventListener("click", () => (window.location = "/contacto"));
+</script>
+<style>
+    .prof {
+        min-height: 100vh;
+        padding: 16px;
+        text-align: center;
+    }
+    .prof__p {
+        padding: 40px 0;
+    }
+    .card-container {
+        width: 100%;
+        gap: 40px;
+        display: grid;
+        justify-items: center;
+        grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr;
+    }
+    .card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        border: 1px solid white;
+        border-radius: 16px;
+        margin: 16px;
+        padding: 32px 16px;
+        background-color: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(8px);
+        width: 248px;
+        height: 200px;
+        word-spacing: 4px;
+        letter-spacing: 2px;
+    }
+    .card__btn {
+        width: 100%;
+        text-align: center;
+        text-decoration: none;
+        background: var(--color-accent-purple);
+        padding: 16px;
+        border: none;
+        border-radius: 8px;
+        font-size: 24px;
+        font-family: "Norse";
+        color: white;
+        border-radius: 8px;
+        cursor: pointer;
+        transition:
+            background-color 0.3s ease,
+            transform 0.3s ease;
+    }
+    .card__btn:hover {
+        background: var(--color-accent-purple-hover);
+        transform: scale(1.05);
+    }
+    .card__btn:active {
+        background-color: var(--color-accent-purple);
+    }
+    .prof__contacto {
+        color: white;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+    .prof__contacto:hover {
+        transform: scale(1.2);
+        color: var(--color-accent-purple-hover);
+    }
+    @media (max-width: 1024px) {
+        .card-container {
+            grid-template: 9fr / 1fr;
+        }
+    }
+</style>

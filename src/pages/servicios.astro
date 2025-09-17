@@ -6,16 +6,43 @@ import Layout from "../layouts/Layout.astro";
 <Layout>
     <NavMenu />
     <section class="dev">
-        <h1>Servicio de desarrollo web</h1>
-        <h2></h2>
+        <h1 class="dev__h1">Servicio de desarrollo web</h1>
+        <article class="dev__art">
+            <p class="dev__p">Te ayudo a:</p>
+            <ol class="dev__ol">
+                <li class="dev__li">Crear una web para tu negocio</li>
+                <li class="dev__li">
+                    Arreglar tu web, ¿no estás contento con la web que te
+                    hicieron?
+                </li>
+                <li class="dev__li">Crear una tienda online</li>
+                <li class="dev__li">Academias online</li>
+                <li class="dev__li">
+                    Soluciones y automatizaciones, la automatización de tareas
+                    repetitivas y aburridas. Ahorrar dinero y esfuerzo
+                    innecesario. Automatiza ese Excel.
+                </li>
+                <li class="dev__li">
+                    Integración de APIs: centros logísticos, Inteligencia
+                    Artificial, traductores...
+                </li>
+                <li class="dev__li">
+                    Asesoramiento a empresas: consultorías 1 a 1
+                </li>
+            </ol>
+        </article>
     </section>
 </Layout>
 <style>
     .dev {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        margin-top: 64px;
         min-height: 100vh;
         padding: 16px;
+    }
+    .dev__h1 {
+        text-align: center;
+    }
+    .dev__art {
+        padding: 40px;
     }
 </style>

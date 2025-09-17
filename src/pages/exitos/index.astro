@@ -5,5 +5,233 @@ import Layout from "../../layouts/Layout.astro";
 
 <Layout title="Casos de éxito">
     <NavMenu />
-    <h1>Casos de éxito</h1>
+    <section class="exito">
+        <h1 class="exito__h1">Últimos trabajos</h1>
+        <div class="card-container">
+            <div class="card">
+                <h2 class="card__h2">irantzumovimiento</h2>
+                <div class="card__imgCont">
+                    <img
+                        src="/public/img/projects/irantzumovimiento.jpg"
+                        alt="Web de irantzumovimiento.com"
+                        class="card__img"
+                    />
+                </div>
+                <button class="card__btn">Saber más</button>
+                <div class="card__explication">
+                    <span class="card__explication-x">X</span>
+                    <p class="card__explication-p">
+                        Proyecto de Wordpress para una educadora fisico
+                        deportiva de Vitoria. <a
+                            class="card__a"
+                            target="_blank"
+                            href="https://irantzumovimiento.com"
+                            >irantzumovimiento.com</a
+                        >
+                    </p>
+                </div>
+            </div>
+            <div class="card">
+                <h2 class="card__h2">code2pdf</h2>
+                <div class="card__imgCont">
+                    <img
+                        src="/public/img/projects/code2pdf.jpg"
+                        alt="Web de irantzumovimiento.com"
+                        class="card__img"
+                    />
+                </div>
+                <button class="card__btn">Saber más</button>
+                <div class="card__explication">
+                    <span class="card__explication-x">X</span>
+                    <p class="card__explication-p">
+                        Proyecto desarrollado para profesores de programación
+                        que necesitan imprimir el código. <a
+                            href="https://github.com/iker777/code-2-pdf"
+                            target="_blank"
+                            class="card__a">Enlace a Github</a
+                        >.
+                    </p>
+                </div>
+            </div>
+            <div class="card">
+                <h2 class="card__h2">Franquihogar</h2>
+                <div class="card__imgCont">
+                    <img
+                        src="/public/img/projects/franquihogar.jpg"
+                        alt="Web de irantzumovimiento.com"
+                        class="card__img"
+                    />
+                </div>
+                <button class="card__btn">Saber más</button>
+                <div class="card__explication">
+                    <span class="card__explication-x">X</span>
+                    <p class="card__explication-p">
+                        Tienda online de menaje de cocina. Web hecha con
+                        WooCommerce. <a
+                            class="card__a"
+                            href="https://franquihogaronline.com"
+                            target="_blank">franquihogar.com</a
+                        >.
+                    </p>
+                </div>
+            </div>
+            <div class="card">
+                <h2 class="card__h2">Ovum</h2>
+                <div class="card__imgCont">
+                    <img
+                        src="/public/img/projects/ovum.jpg"
+                        alt="Web de irantzumovimiento.com"
+                        class="card__img"
+                    />
+                </div>
+                <button class="card__btn">Saber más</button>
+                <div class="card__explication">
+                    <span class="card__explication-x">X</span>
+                    <p class="card__explication-p">
+                        Tienda online centrada en la venta de vajillas modernas. <a
+                            href="https://ovum.es"
+                            class="card__a">ovum.es</a
+                        >.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 </Layout>
+<script is:inline>
+    const allBtnVerMas = document.querySelectorAll(".card__btn");
+    allBtnVerMas.forEach((btnVerMas) =>
+        btnVerMas.addEventListener("click", (e) =>
+            e.target.parentNode.classList.add("card--vermas"),
+        ),
+    );
+    const allXVerMas = document.querySelectorAll(".card__explication-x");
+    allXVerMas.forEach((xVerMas) =>
+        xVerMas.addEventListener("click", (e) =>
+            e.target.parentNode.parentNode.classList.remove("card--vermas"),
+        ),
+    );
+</script>
+<style>
+    .exito {
+        margin-top: 64px;
+        min-height: 100vh;
+        padding: 16px;
+    }
+    .exito__h1 {
+        text-align: center;
+    }
+    .exito__art {
+        padding: 40px;
+    }
+    .card-container {
+        width: 100%;
+        gap: 40px;
+        display: grid;
+        justify-items: center;
+        grid-template: 1fr 1fr / 1fr 1fr;
+        margin: 24px 0;
+    }
+    .card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        border: 1px solid white;
+        border-radius: 16px;
+        margin: 16px;
+        padding: 32px 16px;
+        background-color: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(8px);
+        width: 100%;
+        height: 100%;
+        word-spacing: 4px;
+        letter-spacing: 2px;
+        position: relative;
+    }
+    .card__img {
+        width: 100%;
+        border-radius: 8px;
+        border: 1px solid white;
+    }
+    .card__btn {
+        width: 100%;
+        text-align: center;
+        text-decoration: none;
+        background: var(--color-accent-purple);
+        padding: 16px;
+        border: none;
+        border-radius: 8px;
+        font-size: 24px;
+        font-family: "Norse";
+        color: white;
+        border-radius: 8px;
+        cursor: pointer;
+        transition:
+            background-color 0.3s ease,
+            transform 0.3s ease;
+    }
+    .card__a {
+        color: white;
+    }
+    .card__a:hover {
+        color: var(--color-accent-purple-hover);
+    }
+    .card__btn:hover {
+        background: var(--color-accent-purple-hover);
+        transform: scale(1.05);
+    }
+    .card__btn:active {
+        background-color: var(--color-accent-purple);
+    }
+    .card__explication {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        padding: 16px;
+        display: none;
+        z-index: 1;
+        opacity: 0;
+        transition: 0.8s opacity ease;
+        padding: 32px;
+    }
+    .card__explication-p {
+    }
+    .card__explication-x {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        font-size: 2em;
+        transition: 0.5s transform ease;
+        cursor: pointer;
+        border: 1px solid transparent;
+        border-radius: 8px;
+        padding: 8px;
+    }
+    .card__explication-x:hover {
+        transform: scale(1.2);
+    }
+    .card__explication-x:active {
+        transform: scale(1.2);
+        border: 1px solid white;
+    }
+    .card--vermas .card__explication {
+        display: flex;
+        opacity: 1;
+    }
+
+    .card--vermas::after {
+        content: "";
+        position: absolute;
+        background-color: rgba(0, 0, 0, 0.8);
+        width: 100%;
+        height: 100%;
+        top: 0;
+        border-radius: 16px;
+    }
+</style>
