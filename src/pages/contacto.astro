@@ -8,24 +8,25 @@ import Layout from "../layouts/Layout.astro";
   <section class="callme">
     <article class="callme__textCont">
       <div class="callme__text">
-        <h1 class="callme__h1">We'd love to hear from you</h1>
+        <h1 class="callme__h1">Me encantaría saber más de ti</h1>
         <p class="callme__p">
-          Whether it's feedback, ideas, or just a hello we're here.
+          ¿Hablamos? Puedes contactarme por el formulario, por correo o por
+          teléfono.
         </p>
       </div>
       <div class="callme__icons">
-        <a href="" class="callme__mail">
+        <a href="" target="_blank" class="callme__mail">
           <img src="/public/svg/mail.svg" alt="Email" />
           <span class="callme__span">hola@ikeralvarez.com</span>
         </a>
-        <a href="" class="callme__phone">
+        <a href="" target="_blank" class="callme__phone">
           <img src="/public/svg/phone.svg" alt="Email" />
           <span class="callme__span">666555444</span>
         </a>
-        <a href="" class="callme__where">
+        <span class="callme__where callme__where--location">
           <img src="/public/svg/location.svg" alt="Email" />
           <span class="callme__span">Vitoria-Gasteiz</span>
-        </a>
+        </span>
       </div>
     </article>
     <article class="callme__formCont">
@@ -103,6 +104,7 @@ import Layout from "../layouts/Layout.astro";
       align-items: center;
       gap: 0.5rem;
     }
+
     .callme__mail img,
     .callme__phone img,
     .callme__where img {
@@ -114,10 +116,16 @@ import Layout from "../layouts/Layout.astro";
     .callme__where:hover {
       text-decoration: underline;
     }
+    .callme__where--location:hover {
+      text-decoration: none;
+    }
     .callme__mail:active,
     .callme__phone:active,
     .callme__where:active {
       color: var(--color-text-secondary);
+    }
+    .callme__where--location:active {
+      color: var(--color-text-primary);
     }
     .callme__formCont {
       width: 50%;
