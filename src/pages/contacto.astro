@@ -16,21 +16,31 @@ import Layout from "../layouts/Layout.astro";
       </div>
       <div class="callme__icons">
         <a href="" target="_blank" class="callme__mail">
-          <img src="/public/svg/mail.svg" alt="Email" />
+          <img src="/svg/mail.svg" alt="Email" />
           <span class="callme__span">hola@ikeralvarez.com</span>
         </a>
         <a href="" target="_blank" class="callme__phone">
-          <img src="/public/svg/phone.svg" alt="Email" />
+          <img src="/svg/phone.svg" alt="Email" />
           <span class="callme__span">666555444</span>
         </a>
         <span class="callme__where callme__where--location">
-          <img src="/public/svg/location.svg" alt="Email" />
+          <img src="/svg/location.svg" alt="Email" />
           <span class="callme__span">Vitoria-Gasteiz</span>
         </span>
       </div>
     </article>
     <article class="callme__formCont">
+      <!-- Cargar Turnstile -->
+      <script
+        src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+        async
+        defer></script>
       <form class="callme__form" method="POST" data-netlify="true">
+        <!-- Campo oculto para Netlify y anti-bots -->
+        <input type="hidden" name="form-name" value="contact" />
+        <p class="hidden">
+          <label>No rellenar este campo: <input name="bot-field" /></label>
+        </p>
         <div class="callme__formGroup">
           <label for="name" class="callme__label">Nombre</label>
           <input type="text" name="name" class="callme__input" required />
@@ -61,6 +71,9 @@ import Layout from "../layouts/Layout.astro";
     </article>
   </section>
   <style>
+    .hidden {
+      display: none;
+    }
     .callme {
       display: flex;
       align-items: center;
