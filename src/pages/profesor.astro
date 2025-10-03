@@ -16,11 +16,21 @@ import Layout from "../layouts/Layout.astro";
             Si quieres contratar un curso, puedes elegir entre estas opciones:
         </p>
         <div class="card-container">
-            <div class="card">
-                <h2 class="card__h2">Curso de HTML y CSS</h2>
-                <a href="#" class="card__btn">Ver más</a>
-            </div>
-            <div class="card">
+            <a href="#" class="card__link">
+                <div class="card">
+                    <div class="card__imgCont">
+                        <img src="img/coding-bg.jpg" alt="" class="card__img" />
+                    </div>
+                    <div class="card__textCont">
+                        <h2 class="card__h2">Curso de HTML y CSS</h2>
+                        <div class="card__pillCont">
+                            <span class="card__pill">🟢 Básico</span>
+                            <span class="card__pill">🕐 2 horas</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <!-- <div class="card">
                 <h2 class="card__h2">Curso de JavaScript</h2>
                 <a href="#" class="card__btn">Ver más</a>
             </div>
@@ -53,7 +63,7 @@ import Layout from "../layouts/Layout.astro";
             <div class="card">
                 <h2 class="card__h2">Curso de Mailchimp</h2>
                 <a href="#" class="card__btn">Ver más</a>
-            </div>
+            </div> -->
         </div>
         <p class="prof__p">
             ¿No encuentras el curso que necesitas? Pídemelo y si está dentro de
@@ -72,35 +82,45 @@ import Layout from "../layouts/Layout.astro";
         min-height: 100vh;
         padding: 16px;
         text-align: center;
+        margin-top: 64px;
     }
     .prof__p {
         padding: 40px 0;
     }
     .card-container {
         width: 100%;
-        gap: 40px;
-        display: grid;
-        justify-items: center;
-        grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .card__link {
+        width: 100%;
+        margin: 16px;
     }
     .card {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        gap: 1rem;
-        border: 1px solid white;
-        border-radius: 16px;
-        margin: 16px;
-        padding: 32px 16px;
         background-color: rgba(255, 255, 255, 0.05);
         backdrop-filter: blur(8px);
-        width: 248px;
-        height: 200px;
         word-spacing: 4px;
         letter-spacing: 2px;
+        border-radius: 16px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: 1px solid white;
     }
-    .card__btn {
+    .card__imgCont {
+        max-height: 100%;
+    }
+    .card__img {
+        border-radius: 16px 0 0 16px;
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
+    /* .card__btn {
         width: 100%;
         text-align: center;
         text-decoration: none;
@@ -123,7 +143,7 @@ import Layout from "../layouts/Layout.astro";
     }
     .card__btn:active {
         background-color: var(--color-accent-purple);
-    }
+    } */
     .prof__contacto {
         color: white;
         text-decoration: underline;

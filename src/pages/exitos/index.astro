@@ -21,8 +21,9 @@ import Layout from "../../layouts/Layout.astro";
                 <div class="card__explication">
                     <span class="card__explication-x">X</span>
                     <p class="card__explication-p">
-                        Proyecto de Wordpress para una educadora fisico
-                        deportiva de Vitoria. <a
+                        Transformé la visión de una educadora fisico-deportiva
+                        en una web clara, cercana y profesional que transmite
+                        confianza y convierte visitas en clientes. <a
                             class="card__a"
                             target="_blank"
                             href="https://irantzumovimiento.com"
@@ -45,7 +46,8 @@ import Layout from "../../layouts/Layout.astro";
                     <span class="card__explication-x">X</span>
                     <p class="card__explication-p">
                         Proyecto desarrollado para profesores de programación
-                        que necesitan imprimir el código. <a
+                        que necesitan imprimir el código de los alumnos para
+                        aligerar gestiones burocráticas. <a
                             href="https://github.com/iker777/code-2-pdf"
                             target="_blank"
                             class="card__a">Enlace a Github</a
@@ -66,8 +68,10 @@ import Layout from "../../layouts/Layout.astro";
                 <div class="card__explication">
                     <span class="card__explication-x">X</span>
                     <p class="card__explication-p">
-                        Tienda online de menaje de cocina. Web hecha con
-                        WooCommerce. <a
+                        Ayudé a convertir una tienda de menaje del hogar en un
+                        ecommerce exitoso: un negocio físico que se reinventó,
+                        dio el salto a la venta online y empezó a llegar a
+                        clientes que antes parecían inalcanzables. <a
                             class="card__a"
                             href="https://franquihogaronline.com"
                             target="_blank">franquihogar.com</a
@@ -88,9 +92,12 @@ import Layout from "../../layouts/Layout.astro";
                 <div class="card__explication">
                     <span class="card__explication-x">X</span>
                     <p class="card__explication-p">
-                        Tienda online centrada en la venta de vajillas modernas. <a
-                            href="https://ovum.es"
-                            class="card__a">ovum.es</a
+                        Una marca de vajilla que pasó de las estanterías de la
+                        tienda al escaparate digital. Ahora su diseño vive
+                        también online, llegando a nuevos clientes.
+                        Transformamos la percepción que el cliente tenía de este
+                        producto.<a href="https://ovum.es" class="card__a"
+                            >ovum.es</a
                         >.
                     </p>
                 </div>
@@ -233,5 +240,13 @@ import Layout from "../../layouts/Layout.astro";
         height: 100%;
         top: 0;
         border-radius: 16px;
+    }
+    @media (max-width: 1020px) {
+        .card-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
     }
 </style>
