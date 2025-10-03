@@ -1,7 +1,5 @@
 ---
 import { ViewTransitions } from "astro:transitions";
-
-const { title } = Astro.props;
 ---
 
 <!doctype html>
@@ -11,7 +9,21 @@ const { title } = Astro.props;
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
+		<title>Iker Álvarez | Desarrollo web</title>
+		<!-- Favicon blanco para modo oscuro -->
+		<link
+			rel="icon"
+			href="/svg/logo-iker-white.svg"
+			type="image/svg+xml"
+			media="(prefers-color-scheme: dark)"
+		/>
+		<!-- Favicon negro para modo claro -->
+		<link
+			rel="icon"
+			href="/svg/logo-iker.svg"
+			type="image/svg+xml"
+			media="(prefers-color-scheme: light)"
+		/>
 		<ViewTransitions />
 	</head>
 	<body>
@@ -58,6 +70,7 @@ const { title } = Astro.props;
 		--color-accent-green: #10b981; /* Verde menta (éxito, CTA secundaria) */
 		--color-accent-green-hover: #059669;
 		--color-accent-purple: #8b5cf6; /* Púrpura suave (para detalles creativos) */
+		--color-accent-purple-bg: #8a5cf66a; /* Púrpura suave (para detalles creativos) */
 		--color-accent-purple-hover: #a78bfa;
 
 		/* 🪄 Animaciones y transiciones */

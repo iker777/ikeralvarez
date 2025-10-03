@@ -8,20 +8,27 @@ import Layout from "../layouts/Layout.astro";
   <section class="callme">
     <article class="callme__textCont">
       <div class="callme__text">
-        <h1 class="callme__h1">Me encantaría saber más de ti</h1>
-        <p class="callme__p">
-          ¿Hablamos? Puedes contactarme por el formulario, por correo o por
-          teléfono.
+        <h1 class="callme__h1">Contacto</h1>
+        <p class="callme__p callme__p--media">
+          Si quieres, puedes visitar mis redes sociales
         </p>
       </div>
       <div class="callme__icons">
-        <a href="" target="_blank" class="callme__mail">
-          <img src="/svg/mail.svg" alt="Email" />
-          <span class="callme__span">hola@ikeralvarez.com</span>
+        <a
+          href="https://github.com/iker777"
+          target="_blank"
+          class="callme__mail"
+        >
+          <img src="/svg/github.svg" alt="Email" />
+          <span class="callme__span">github.com/iker777</span>
         </a>
-        <a href="" target="_blank" class="callme__phone">
-          <img src="/svg/phone.svg" alt="Email" />
-          <span class="callme__span">666555444</span>
+        <a
+          href="https://es.linkedin.com/in/iker-alvarez-saez"
+          target="_blank"
+          class="callme__phone"
+        >
+          <img src="/svg/linkedin.svg" alt="Email" />
+          <span class="callme__span">LinkedIn</span>
         </a>
         <span class="callme__where callme__where--location">
           <img src="/svg/location.svg" alt="Email" />
@@ -69,8 +76,36 @@ import Layout from "../layouts/Layout.astro";
         <button type="submit" class="callme__button">Enviar mensaje</button>
       </form>
     </article>
+    <section class="mobile-footer">
+      <p class="mobile-footer__p">Puedes visitar mis redes socilales:</p>
+      <a
+        href="https://github.com/iker777"
+        target="_blank"
+        class="mobile-footer__a"
+      >
+        <img
+          src="/svg/github.svg"
+          alt="Enlace a Github"
+          class="mobile-footer__img"
+        />
+      </a>
+      <a
+        href="https://es.linkedin.com/in/iker-alvarez-saez"
+        target="_blank"
+        class="mobile-footer__a"
+      >
+        <img
+          src="/svg/linkedin.svg"
+          alt="Enlace a LinkedIn"
+          class="mobile-footer__img"
+        />
+      </a>
+    </section>
   </section>
   <style>
+    .mobile-footer {
+      display: none;
+    }
     .hidden {
       display: none;
     }
@@ -90,6 +125,7 @@ import Layout from "../layouts/Layout.astro";
       justify-content: space-evenly;
       align-items: start;
       padding: 32px;
+      text-align: start;
     }
     .callme__h1 {
       font-size: 32px;
@@ -217,6 +253,20 @@ import Layout from "../layouts/Layout.astro";
       background-color: var(--color-accent-purple);
     }
     @media (max-width: 768px) {
+      .mobile-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        gap: 16px;
+        width: 100%;
+        margin-top: 16px;
+      }
+      .mobile-footer__a {
+        text-decoration: none;
+      }
+      .mobile-footer__img {
+        width: 24px;
+      }
       .callme {
         flex-direction: column;
         padding: 1rem;
@@ -227,16 +277,22 @@ import Layout from "../layouts/Layout.astro";
         align-items: start;
         min-height: auto;
         padding-bottom: 16px;
+        text-align: center;
+      }
+      .callme__text {
+        width: 100%;
       }
       .callme__h1 {
         font-size: 24px;
         margin-bottom: 8px;
+        text-align: center;
       }
       .callme__p {
         font-size: 12px;
         margin-bottom: 0px;
       }
-      .callme__icons {
+      .callme__icons,
+      .callme__p--media {
         display: none;
       }
       .callme__formCont {
@@ -244,6 +300,10 @@ import Layout from "../layouts/Layout.astro";
         height: auto;
         min-height: auto;
         align-items: start;
+        padding: 0;
+      }
+      .callme__form {
+        margin: 0;
       }
       .callme__button {
         font-size: 20px;
