@@ -1,6 +1,32 @@
 ---
 import NavMenu from "../components/NavMenu.astro";
 import Layout from "../layouts/Layout.astro";
+const courses = [
+    {
+        title: "Curso de HTML y CSS",
+        difficulty: "Básico",
+        duration: "2 horas",
+        image: "img/coding-bg.jpg",
+        alt: "Curso de HTML y CSS",
+        link: "#",
+    },
+    {
+        title: "Curso de JavaScript",
+        difficulty: "Básico",
+        duration: "2 horas",
+        image: "img/coding-bg.jpg",
+        alt: "Curso de HTML y CSS",
+        link: "#",
+    },
+    {
+        title: "Curso de PHP",
+        difficulty: "Básico",
+        duration: "2 horas",
+        image: "img/coding-bg.jpg",
+        alt: "Curso de HTML y CSS",
+        link: "#",
+    },
+];
 ---
 
 <Layout>
@@ -16,54 +42,28 @@ import Layout from "../layouts/Layout.astro";
             Si quieres contratar un curso, puedes elegir entre estas opciones:
         </p>
         <div class="card-container">
-            <a href="#" class="card__link">
-                <div class="card">
-                    <div class="card__imgCont">
-                        <img src="img/coding-bg.jpg" alt="" class="card__img" />
-                    </div>
-                    <div class="card__textCont">
-                        <h2 class="card__h2">Curso de HTML y CSS</h2>
-                        <div class="card__pillCont">
-                            <span class="card__pill">🟢 Básico</span>
-                            <span class="card__pill">🕐 2 horas</span>
+            {
+                courses.map((course) => (
+                    <a href={course.link} class="card">
+                        <img
+                            src={course.image}
+                            alt={course.alt}
+                            class="card__img"
+                        />
+                        <div class="card__textCont">
+                            <h2 class="card__h2">{course.title}</h2>
+                            <div class="card__pillCont">
+                                <span class="card__pill">
+                                    {course.difficulty}
+                                </span>
+                                <span class="card__pill">
+                                    {course.duration}
+                                </span>
+                            </div>
                         </div>
-                    </div>
-                </div>
-            </a>
-            <!-- <div class="card">
-                <h2 class="card__h2">Curso de JavaScript</h2>
-                <a href="#" class="card__btn">Ver más</a>
-            </div>
-            <div class="card">
-                <h2 class="card__h2">Curso de PHP</h2>
-                <a href="#" class="card__btn">Ver más</a>
-            </div>
-            <div class="card">
-                <h2 class="card__h2">
-                    Cursos de creación de plantillas con Wordpress
-                </h2>
-                <a href="#" class="card__btn">Ver más</a>
-            </div>
-            <div class="card">
-                <h2 class="card__h2">Cursos de creación de tiendas online</h2>
-                <a href="#" class="card__btn">Ver más</a>
-            </div>
-            <div class="card">
-                <h2 class="card__h2">Cursos de creación de SEO</h2>
-                <a href="#" class="card__btn">Ver más</a>
-            </div>
-            <div class="card">
-                <h2 class="card__h2">Cursos de integración de APIs</h2>
-                <a href="#" class="card__btn">Ver más</a>
-            </div>
-            <div class="card">
-                <h2 class="card__h2">Curso de Google Analytics</h2>
-                <a href="#" class="card__btn">Ver más</a>
-            </div>
-            <div class="card">
-                <h2 class="card__h2">Curso de Mailchimp</h2>
-                <a href="#" class="card__btn">Ver más</a>
-            </div> -->
+                    </a>
+                ))
+            }
         </div>
         <p class="prof__p">
             ¿No encuentras el curso que necesitas? Pídemelo y si está dentro de
@@ -89,61 +89,58 @@ import Layout from "../layouts/Layout.astro";
     }
     .card-container {
         width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-    }
-    .card__link {
-        width: 100%;
-        margin: 16px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
     }
     .card {
+        width: 100%;
         background-color: rgba(255, 255, 255, 0.05);
         backdrop-filter: blur(8px);
         word-spacing: 4px;
         letter-spacing: 2px;
         border-radius: 16px;
-        width: 100%;
         display: flex;
-        justify-content: space-between;
+        justify-content: start;
         align-items: center;
-        border: 1px solid white;
+        border: 0.5px solid rgba(255, 255, 255, 0.5);
+        gap: 32px;
+        color: white;
+        text-decoration: none;
+        transition: background-color 0.5s ease;
     }
-    .card__imgCont {
-        max-height: 100%;
+    .card:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        border: 0.5px solid rgba(255, 255, 255);
+    }
+    .card:hover .card__pill {
+        border: 0.5px solid rgba(255, 255, 255);
+    }
+    .card:active {
+        background-color: rgba(255, 255, 255, 0.25);
     }
     .card__img {
         border-radius: 16px 0 0 16px;
-        position: relative;
-        top: 0;
-        left: 0;
-        width: 100%;
+        min-width: 100px;
+        max-width: 200px;
     }
-    /* .card__btn {
-        width: 100%;
-        text-align: center;
-        text-decoration: none;
-        background: var(--color-accent-purple);
-        padding: 16px;
-        border: none;
+    .card__textCont {
+        height: -webkit-fill-available;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 16px 0;
+    }
+    .card__pillCont {
+        display: flex;
+        gap: 16px;
+    }
+    .card__pill {
+        border: 0.5px solid rgba(255, 255, 255, 0.5);
+        padding: 4px;
         border-radius: 8px;
-        font-size: 24px;
-        font-family: "Norse";
-        color: white;
-        border-radius: 8px;
-        cursor: pointer;
-        transition:
-            background-color 0.3s ease,
-            transform 0.3s ease;
+        font-size: 0.8em;
     }
-    .card__btn:hover {
-        background: var(--color-accent-purple-hover);
-        transform: scale(1.05);
-    }
-    .card__btn:active {
-        background-color: var(--color-accent-purple);
-    } */
     .prof__contacto {
         color: white;
         text-decoration: underline;
@@ -155,7 +152,7 @@ import Layout from "../layouts/Layout.astro";
     }
     @media (max-width: 1024px) {
         .card-container {
-            grid-template: 9fr / 1fr;
+            grid-template-columns: 1fr;
         }
     }
 </style>

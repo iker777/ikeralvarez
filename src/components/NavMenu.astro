@@ -22,7 +22,8 @@ import MainComponent from "./MainComponent.astro";
 </script>
 <style>
     .nav {
-        position: absolute;
+        position: fixed;
+        z-index: 100;
         top: 0;
         left: 0;
         width: 100%;
@@ -47,7 +48,9 @@ import MainComponent from "./MainComponent.astro";
         position: absolute;
         top: 0;
         left: 0;
-        padding: 16px;
+        margin: 8px;
+        padding: 8px;
+        border-radius: 8px;
         z-index: 2;
         animation: arrow-animation 1.5s ease-in-out;
         display: flex;
@@ -55,6 +58,7 @@ import MainComponent from "./MainComponent.astro";
         align-items: center;
         flex-direction: column;
         pointer-events: all;
+        backdrop-filter: blur(4px);
     }
 
     .nav__arrow {
@@ -100,5 +104,13 @@ import MainComponent from "./MainComponent.astro";
     .menu__active {
         left: 0;
         background-color: var(--color-shadow);
+    }
+    @media (max-width: 1026px) {
+        .nav__arrow {
+            width: 28px;
+        }
+        .nav__text {
+            font-size: 12px;
+        }
     }
 </style>
