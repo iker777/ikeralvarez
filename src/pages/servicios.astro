@@ -7,7 +7,21 @@ import Layout from "../layouts/Layout.astro";
     <NavMenu />
     <section class="dev">
         <h1 class="dev__h1">Servicio de desarrollo web</h1>
-        <article class="dev__art">
+        <article class="dev__cont dev__cont--odd">
+            <div class="dev__textCont">
+                <h2 class="dev__h2">Web para negocios</h2>
+                <ul class="dev__ul">
+                    <li class="dev__li">item1</li>
+                    <li class="dev__li">item2</li>
+                    <li class="dev__li">item3</li>
+                    <li class="dev__li">item4</li>
+                </ul>
+            </div>
+            <div class="dev__contImg">
+                <img src="img/coding-bg.jpg" alt="" class="dev__img" />
+            </div>
+        </article>
+        <!-- <article class="dev__art">
             <p class="dev__p">Te ayudo a:</p>
             <ol class="dev__ol">
                 <li class="dev__li">Crear una web para tu negocio</li>
@@ -30,7 +44,7 @@ import Layout from "../layouts/Layout.astro";
                     Asesoramiento a empresas: consultorías 1 a 1
                 </li>
             </ol>
-        </article>
+        </article> -->
     </section>
 </Layout>
 <style>
@@ -44,5 +58,27 @@ import Layout from "../layouts/Layout.astro";
     }
     .dev__art {
         padding: 40px;
+    }
+    .dev__cont {
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+        margin: 16px 0;
+    }
+    .dev__contImg {
+        border-radius: 16px;
+        border: 2px solid white;
+    }
+    .dev__img {
+        border-radius: 16px;
+        width: 100%;
+    }
+    @media (max-width: 1024px) {
+        .dev__cont--odd {
+            flex-direction: column-reverse;
+        }
+        .dev__cont--even:25 {
+            flex-direction: column;
+        }
     }
 </style>
