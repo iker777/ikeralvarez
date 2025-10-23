@@ -1,34 +1,15 @@
 ---
 import NavMenu from "../components/NavMenu.astro";
 import Layout from "../layouts/Layout.astro";
-const courses = [
-    {
-        title: "Curso de HTML y CSS",
-        difficulty: "Básico",
-        duration: "2 horas",
-        image: "img/coding-bg.jpg",
-        alt: "Curso de HTML y CSS",
-        link: "#",
-    },
-    {
-        title: "Curso de JavaScript",
-        difficulty: "Básico",
-        duration: "2 horas",
-        image: "img/coding-bg.jpg",
-        alt: "Curso de HTML y CSS",
-        link: "#",
-    },
-    {
-        title: "Curso de PHP",
-        difficulty: "Básico",
-        duration: "2 horas",
-        image: "img/coding-bg.jpg",
-        alt: "Curso de HTML y CSS",
-        link: "#",
-    },
-];
+import { coursesData } from "../data/coursesData";
+
+const courses = coursesData;
 ---
 
+<!-- Inyectar datos una sola vez -->
+<script is:inline define:vars={{ courses }}>
+    window.__APP_DATA__ = { courses };
+</script>
 <Layout>
     <NavMenu />
     <section class="prof">
@@ -44,7 +25,7 @@ const courses = [
         <div class="card-container">
             {
                 courses.map((course) => (
-                    <a href={course.link} class="card">
+                    <article class="card">
                         <img
                             src={course.image}
                             alt={course.alt}
@@ -61,7 +42,7 @@ const courses = [
                                 </span>
                             </div>
                         </div>
-                    </a>
+                    </article>
                 ))
             }
         </div>
@@ -74,7 +55,27 @@ const courses = [
 </Layout>
 <script is:inline>
     const link = document.querySelector(".prof__contacto");
-    link?.addEventListener("click", () => (window.location = "/contacto"));
+    link?.addEventListener(
+        "click",
+        () => (window.location = "/contacto?mainService=teacher"),
+    );
+
+    // Acceder al array desde cualquier botón
+    const courses = window.__APP_DATA__.courses;
+    const allBtns = document.querySelectorAll(".card");
+    allBtns.forEach((btn, index) => {
+        btn.addEventListener("click", () => {
+            const course = courses[index];
+            const plantillaTexto = `Necesito el curso de: ${course.title} `;
+
+            // Crear URL con parámetros
+            const params = new URLSearchParams({
+                mainService: "teacher" || "",
+                description: plantillaTexto || "",
+            });
+            window.location.href = `/contacto?${params.toString()}`;
+        });
+    });
 </script>
 <style>
     .prof {
@@ -122,6 +123,7 @@ const courses = [
         border-radius: 16px 0 0 16px;
         min-width: 100px;
         max-width: 200px;
+        width: 200px;
     }
     .card__textCont {
         height: -webkit-fill-available;

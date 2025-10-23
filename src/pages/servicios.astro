@@ -1,84 +1,202 @@
 ---
 import NavMenu from "../components/NavMenu.astro";
 import Layout from "../layouts/Layout.astro";
+import { servicesData } from "../data/servicesData";
+
+const services = servicesData;
 ---
 
+<!-- Inyectar datos una sola vez -->
+<script is:inline define:vars={{ services }}>
+    window.__APP_DATA__ = { services };
+</script>
 <Layout>
     <NavMenu />
-    <section class="dev">
-        <h1 class="dev__h1">Servicio de desarrollo web</h1>
-        <article class="dev__cont dev__cont--odd">
-            <div class="dev__textCont">
-                <h2 class="dev__h2">Web para negocios</h2>
-                <ul class="dev__ul">
-                    <li class="dev__li">item1</li>
-                    <li class="dev__li">item2</li>
-                    <li class="dev__li">item3</li>
-                    <li class="dev__li">item4</li>
-                </ul>
-            </div>
-            <div class="dev__contImg">
-                <img src="img/coding-bg.jpg" alt="" class="dev__img" />
-            </div>
-        </article>
-        <!-- <article class="dev__art">
-            <p class="dev__p">Te ayudo a:</p>
-            <ol class="dev__ol">
-                <li class="dev__li">Crear una web para tu negocio</li>
-                <li class="dev__li">
-                    Arreglar tu web, ¿no estás contento con la web que te
-                    hicieron?
-                </li>
-                <li class="dev__li">Crear una tienda online</li>
-                <li class="dev__li">Academias online</li>
-                <li class="dev__li">
-                    Soluciones y automatizaciones, la automatización de tareas
-                    repetitivas y aburridas. Ahorrar dinero y esfuerzo
-                    innecesario. Automatiza ese Excel.
-                </li>
-                <li class="dev__li">
-                    Integración de APIs: centros logísticos, Inteligencia
-                    Artificial, traductores...
-                </li>
-                <li class="dev__li">
-                    Asesoramiento a empresas: consultorías 1 a 1
-                </li>
-            </ol>
-        </article> -->
+    <section class="dev" data-services={JSON.stringify(services)}>
+        <h1 class="dev__h1">servicio de desarrollo web</h1>
+        {
+            services.map((service, index) => (
+                <article
+                    class={`dev__cont dev__cont--${index % 2 == 0 ? "even" : "odd"}`}
+                >
+                    <div class="dev__textcont">
+                        <h2 class="dev__h2">{service.title}</h2>
+                        <p class="dev__p">{service.description}</p>
+                        <ul class="dev__ul">
+                            {service.items.map((serviceFeature) => (
+                                <li>{serviceFeature}</li>
+                            ))}
+                        </ul>
+                        <button class="dev__btn">{service.buttonText}</button>
+                    </div>
+                    <div class="dev__imgcont">
+                        <div class="dev__imgbordercont">
+                            <img src={service.image} alt="" class="dev__img" />
+                        </div>
+                    </div>
+                </article>
+            ))
+        }
     </section>
 </Layout>
+<script is:inline>
+    // Acceder al array desde cualquier botón
+    const services = window.__APP_DATA__.services;
+    const allBtns = document.querySelectorAll(".dev__btn");
+    allBtns.forEach((btn, index) => {
+        btn.addEventListener("click", () => {
+            const service = services[index];
+            const plantillaTexto = `Necesito el servicio de: ${service.title} `;
+
+            // Crear URL con parámetros
+            const params = new URLSearchParams({
+                mainService: "developer" || "",
+                description: plantillaTexto || "",
+            });
+            window.location.href = `/contacto?${params.toString()}`;
+        });
+    });
+</script>
+
 <style>
     .dev {
         margin-top: 64px;
         min-height: 100vh;
         padding: 16px;
     }
+
     .dev__h1 {
         text-align: center;
+        margin-bottom: 3rem;
+        font-size: 2.5rem;
     }
-    .dev__art {
-        padding: 40px;
-    }
+
     .dev__cont {
         display: flex;
-        width: 100%;
-        justify-content: space-around;
-        margin: 16px 0;
+        gap: 2rem;
+        margin: 4rem 16rem;
     }
-    .dev__contImg {
-        border-radius: 16px;
-        border: 2px solid white;
+
+    .dev__textcont {
+        flex: 1;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        padding: 0 32px;
+        width: 50%;
     }
+
+    .dev__imgcont {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50%;
+    }
+    .dev__imgbordercont {
+        border: 2px solid var(--color-accent-purple);
+        border-radius: 8px;
+    }
+
     .dev__img {
-        border-radius: 16px;
-        width: 100%;
+        width: 500px;
+        height: auto;
+        border-radius: 8px;
     }
-    @media (max-width: 1024px) {
-        .dev__cont--odd {
+
+    .dev__h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+    }
+
+    .dev__ul {
+        margin: 16px 0em;
+        margin-left: 2em;
+        padding: 0;
+        font-size: 14px;
+    }
+
+    .dev__li {
+        padding: 0.5rem 0;
+        font-size: 1.1rem;
+    }
+
+    /* Para escritorio - orden normal en odd (texto izquierda, imagen derecha) */
+    .dev__cont--odd {
+        flex-direction: row;
+    }
+
+    /* Para escritorio - orden invertido en even (texto derecha, imagen izquierda) */
+    .dev__cont--even {
+        flex-direction: row-reverse;
+    }
+    .dev__btn {
+        background: var(--color-accent-purple);
+        padding: 16px;
+        margin: 0 5%;
+        border: none;
+        border-radius: 8px;
+        text-align: center;
+        font-size: 24px;
+        font-family: "Norse";
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition:
+            background-color 0.3s ease,
+            transform 0.3s ease;
+    }
+    .dev__btn:hover {
+        background: var(--color-accent-purple-hover);
+        transform: scale(1.05);
+    }
+    .dev__btn:active {
+        background-color: var(--color-accent-purple);
+    }
+    @media (max-width: 1500px) {
+        .dev__cont {
+            display: flex;
+            gap: 2rem;
+            margin: 4rem 4rem;
+        }
+        .dev__img {
+            width: 300px;
+        }
+    }
+    @media (max-width: 1080px) {
+        .dev__img {
+            width: 250px;
+        }
+        .dev__textcont {
+            padding: 16px 0;
+        }
+    }
+    /* Para móvil */
+    @media (max-width: 768px) {
+        .dev__cont {
+            margin: 2rem 1rem;
+        }
+        .dev__imgcont {
+            width: 100%;
+        }
+        .dev__textcont {
+            width: 100%;
+        }
+        .dev__cont {
+            gap: 1.5rem;
             flex-direction: column-reverse;
         }
-        .dev__cont--even:25 {
-            flex-direction: column;
+        .dev__h1 {
+            font-size: 2rem;
+        }
+
+        .dev__h2 {
+            font-size: 1.5rem;
+            text-align: center;
+        }
+        .dev__img {
+            width: 300px;
         }
     }
 </style>
