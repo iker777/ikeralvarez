@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ikeralvarez.com/sitemap-index.xml
