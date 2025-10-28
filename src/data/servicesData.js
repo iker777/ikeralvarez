@@ -4,7 +4,7 @@ export const servicesData = [
         title: "Webs para negocios",
         description:
             "La presencia online parte de una web, aquí convertimos. Queremos que nuestros clientes se sienta cómodos en nuestra casa.",
-        image: "img/coding-bg.jpg",
+        image: "/img/services/lapices.webp",
         alt: "Curso de HTML y CSS",
         buttonText: "Saber más",
         items: [
@@ -18,7 +18,7 @@ export const servicesData = [
         title: "Tiendas online",
         description:
             "¿Cuántas veces crees que una persona compra online al mes?",
-        image: "img/coding-bg.jpg",
+        image: "/img/services/tienda.webp",
         alt: "Curso de HTML y CSS",
         buttonText: "Saber más",
         items: [
@@ -32,11 +32,13 @@ export const servicesData = [
         id: 3,
         title: "Asesoría 1 a 1",
         description: "Quién no agradece una mano en los momentos duros",
-        image: "img/coding-bg.jpg",
+        image: "/img/services/idea.webp",
         alt: "Curso de HTML y CSS",
         buttonText: "Saber más",
         items: [
             "¿Necesitas dirección con tu negocio? Una hora conmigo puede ahorrarte muchos problemas. Mi experiencia me avala",
+            "En persona o por videollamada.",
+            "Cada caso es diferente"
         ],
     },
     {
@@ -44,16 +46,20 @@ export const servicesData = [
         title: "Cursos en empresas",
         description:
             "10 años como formador, sé llegar y transmitir. Conmigo sales amando programar.",
-        image: "img/coding-bg.jpg",
+        image: "/img/services/clase.webp",
         alt: "Curso de HTML y CSS",
         buttonText: "Saber más",
-        items: [],
+        items: [
+            "Formar es mi pasión",
+            "Transmito desde la práctica y los casos reales",
+            "El mejor profesor es el que vive el día a día de la profesión"
+        ],
     },
     {
         id: 5,
         title: "Software a medida",
         description: "¿Hablamos de una aplicación web que resuelva problemas?",
-        image: "img/coding-bg.jpg",
+        image: "/img/services/computer.webp",
         alt: "Curso de HTML y CSS",
         buttonText: "Saber más",
         items: [
